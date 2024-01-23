@@ -1,0 +1,24 @@
+const value = document.querySelectorAll('.hole');
+const dead = document.getElementById('dead');
+const lost = document.getElementById('lost');
+
+for (let i = 0; i < 9; i++) {
+    value[i].onclick = function() {
+        if (value[i].classList.contains('hole_has-mole')) {
+            dead.textContent++;
+        } else {
+            lost.textContent++;
+        }
+
+        if(dead.textContent == 10) {
+            dead.textContent = 0;
+            lost.textContent = 0;
+            alert('Вы выиграли');
+
+        } else if (lost.textContent == 5) {
+            dead.textContent = 0;
+            lost.textContent = 0;
+            alert('Вы проиграли');
+        }
+    }
+}
